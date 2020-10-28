@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -24,9 +26,36 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+       // icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: "gatsby-source-shopify",
+      options: {
+        shopName:"ken-test-store-netlify",
+        accessToken:process.env.SHOPIFY_STOREFRONT_API_TOKEN,
+        apiVersion: "2020-01",
+        verbose: true,
+        includeCollections: ["shop"],
+        // shopifyQueries: {
+        //   products: `
+        //     query GetProducts($first: Int!, $after: String) {
+        //       products(first: $first, after: $after) {
+        //         pageInfo {
+        //           hasNextPage
+        //         }
+        //         edges {
+        //           cursor
+        //           node {
+        //             availableForSale
+        //           }
+        //         }
+        //       }
+        //     }
+        //   `,
+        // }
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
