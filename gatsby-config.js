@@ -11,8 +11,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -37,23 +37,6 @@ module.exports = {
         apiVersion: "2020-01",
         verbose: true,
         includeCollections: ["shop"],
-        // shopifyQueries: {
-        //   products: `
-        //     query GetProducts($first: Int!, $after: String) {
-        //       products(first: $first, after: $after) {
-        //         pageInfo {
-        //           hasNextPage
-        //         }
-        //         edges {
-        //           cursor
-        //           node {
-        //             availableForSale
-        //           }
-        //         }
-        //       }
-        //     }
-        //   `,
-        // }
       }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
